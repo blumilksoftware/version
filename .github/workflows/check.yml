@@ -22,24 +22,24 @@ jobs:
         php: ["8.2", "8.3"]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4.1.1
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: ${{ matrix.php }}
-          coverage: none
+      - name: Validate composer.json and composer.lock
+        run: composer validate
 
-      - name: Cache composer dependencies
-        uses: actions/cache@v2
+      - name: Cache dependencies
+        uses: actions/cache@v4.0.1
         with:
           path: vendor
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-composer-
+          key: ${{ runner.os }}-composer-dependencies-${{ hashFiles('composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-dependencies
 
-      - name: Validate composer.json
-        run: composer validate
+      - name: Setup PHP
+        uses: shivammathur/setup-php@2.30.0
+        with:
+          php-version: 8.3
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, intl
+          coverage: none
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
