@@ -33,7 +33,18 @@ use Blumilk\Version\Version;
 
 $version = (new Version(true))->generate();
 ```
+#### Helper class
+You can use also the `VersionHelper` class to generate version strings:
+```php  
+<?php
 
+declare(strict_types=1);
+
+use Blumilk\Version\VersionHelper;
+
+$shortVersion = VersionHelper::generateShortVersion();
+$longVersion = VersionHelper::generateLongVersion();
+```
 ### Contributing
 In cloned or forked repository, run:
 ```shell

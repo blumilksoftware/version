@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Blumilk\Version\Version;
 use PHPUnit\Framework\TestCase;
 
-class GenerateVersionTest extends TestCase
+class VersionTest extends TestCase
 {
     public function testGeneratingVersionBasedOnGit(): void
     {
