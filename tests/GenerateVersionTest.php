@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class GenerateVersionTest extends TestCase
 {
-    public function testGeneratingVersion(): void
+    public function testGeneratingVersionBasedOnGit(): void
     {
         $version = (new VersionHelper())->generate();
 
@@ -15,9 +15,9 @@ class GenerateVersionTest extends TestCase
         $this->assertStringNotContainsString("|", $version);
     }
 
-    public function testGeneratingLongVersion(): void
+    public function testGeneratingLongVersionBasedOnGit(): void
     {
-        $version = (new VersionHelper(true))->generate();
+        $version = (new VersionHelper())->generate(true);
         $versionHash = trim(shell_exec("git log --format='%h' -n 1"));
 
         $this->assertIsString($version);

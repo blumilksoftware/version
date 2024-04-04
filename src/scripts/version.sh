@@ -25,6 +25,16 @@ getLastTag() {
   fi
 }
 
+isGitRepo() {
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1
+}
+
+isGitRepo
+if [ $? -gt 0 ]; then
+  echo "Not a git repository"
+  exit 1
+fi
+
 gitBranch() {
   BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
