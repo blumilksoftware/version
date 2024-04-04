@@ -11,8 +11,4 @@ ENV COMPOSER_HOME=/application/.composer
 ENV COMPOSER_MEMORY_LIMIT=-1
 
 RUN apk update && apk upgrade \
-    && apk add --no-cache icu-dev git \
-    && docker-php-ext-install \
-        mysqli \
-        pdo \
-        pdo_mysql
+    && apk add --no-cache icu-dev git
