@@ -3,10 +3,10 @@
 [![Packagist Downloads](https://img.shields.io/packagist/dt/blumilksoftware/version?style=for-the-badge)](https://packagist.org/packages/blumilksoftware/version/stats)
 
 ## blumilksoftware/version
-A versioning based on git for all Blumilk projects. If git is not available, it falls back to timestamp.
+A versioning based on git for all Blumilk projects. If Git is not available, it falls back to the timestamp.
 
 ### Usage
-Add package to our project:
+Add package to the project:
 ```shell
 composer require blumilksoftware/version
 ```
@@ -46,7 +46,7 @@ $shortVersion = VersionHelper::generateShortVersion();
 $longVersion = VersionHelper::generateLongVersion();
 ```
 ### Contributing
-In cloned or forked repository, run:
+In a cloned or forked repository, run:
 ```shell
 composer install
 ```
@@ -77,6 +77,6 @@ make stop
 
 Please maintain our project guidelines:
 * keep issues well described, labeled and in English,
-* add issue number to all your commits,
-* add issue number to your branch name,
-* squash your commits into one commit with standardized name.
+* add the issue number to all your commits,
+* add the issue number to your branch name,
+* squash your commits into one commit with a standardized name.
