@@ -4,7 +4,7 @@
   "license": "MIT",
   "type": "library",
   "require": {
-    "php": "^8.2"
+    "php": "^8.3"
   },
   "require-dev": {
     "blumilksoftware/codestyle": "^2.8",

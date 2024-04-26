@@ -3,7 +3,7 @@ PHP_FPM_SERVICE_NAME=php
 
 .PHONY: shell
 shell:
-	docker compose -f ${DOCKER_COMPOSE_FILENAME} exec ${PHP_FPM_SERVICE_NAME} ash
+	docker compose -f ${DOCKER_COMPOSE_FILENAME} exec ${PHP_FPM_SERVICE_NAME} bash
 
 .PHONY: test
 test:
@@ -16,6 +16,10 @@ csf:
 .PHONY: run
 run:
 	docker compose -f ${DOCKER_COMPOSE_FILENAME} up -d
+
+.PHONY: build
+build:
+	docker compose -f ${DOCKER_COMPOSE_FILENAME} build
 
 .PHONY: stop
 stop:
