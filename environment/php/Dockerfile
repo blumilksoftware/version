@@ -7,6 +7,7 @@ FROM php:${PHP_VERSION}
 
 COPY --from=composer_binary /composer /usr/bin/composer
 
-RUN apt-get update  \
-    && apt-get upgrade \
-    && apt-get install -y git
+RUN apt-get update && apt-get install -y git zip \
+    && apt-get install -y libzip-dev \
+    && docker-php-ext-install zip \
+    && docker-php-ext-enable zip

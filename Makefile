@@ -1,29 +1,26 @@
-DOCKER_COMPOSE_FILENAME=docker-compose.yml
-PHP_FPM_SERVICE_NAME=php
-
 .PHONY: shell
 shell:
-	docker compose -f ${DOCKER_COMPOSE_FILENAME} exec ${PHP_FPM_SERVICE_NAME} bash
+	docker compose exec php bash
 
 .PHONY: test
 test:
-	docker compose -f ${DOCKER_COMPOSE_FILENAME} exec ${PHP_FPM_SERVICE_NAME} composer test
+	docker compose exec php composer test
 
 .PHONY: csf
 csf:
-	docker compose -f ${DOCKER_COMPOSE_FILENAME} exec ${PHP_FPM_SERVICE_NAME} composer csf
+	docker compose exec php composer csf
 
 .PHONY: run
 run:
-	docker compose -f ${DOCKER_COMPOSE_FILENAME} up -d
+	docker compose up -d
 
 .PHONY: build
 build:
-	docker compose -f ${DOCKER_COMPOSE_FILENAME} build
+	docker compose build
 
 .PHONY: stop
 stop:
-	docker compose -f ${DOCKER_COMPOSE_FILENAME} stop
+	docker compose stop
 
 .PHONY: restart
 restart: stop run

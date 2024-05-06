@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Blumilk\Version;
 
+use Symfony\Component\Process\Process;
+
 class Version
 {
     public const string SCRIPTS_DIRECTORY = "src/scripts/";
@@ -19,18 +21,24 @@ class Version
 
     public function generate(): string
     {
-        return shell_exec(self::SCRIPTS_DIRECTORY . "check.sh")
+        return (new Process(["./check.sh"], self::SCRIPTS_DIRECTORY))->run()
             ? $this->getVersionBasedOnGit()
             : $this->getVersionBasedOnTimestamp();
     }
 
     private function getVersionBasedOnGit(): string
     {
+        $process = new Process(["./version.sh"], self::SCRIPTS_DIRECTORY);
+
         if ($this->long) {
-            return shell_exec(self::SCRIPTS_DIRECTORY . "version.sh --long");
+            $process = new Process(["./version.sh", "--long"], self::SCRIPTS_DIRECTORY);
         }
 
-        return shell_exec(self::SCRIPTS_DIRECTORY . "version.sh");
+        $process->mustRun();
+
+        return $process->isSuccessful()
+            ? $process->getOutput()
+            : $this->getVersionBasedOnTimestamp();
     }
 
     private function getVersionBasedOnTimestamp(): string
