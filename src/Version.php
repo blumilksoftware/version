@@ -8,7 +8,7 @@ use Symfony\Component\Process\Process;
 
 class Version
 {
-    public const string SCRIPTS_DIRECTORY = "src/scripts/";
+    public const string SCRIPTS_DIRECTORY = __DIR__ . "/scripts/";
 
     public function __construct(
         public bool $long = false,
