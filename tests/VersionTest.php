@@ -21,9 +21,9 @@ class VersionTest extends TestCase
     public function testGeneratingLongVersionBasedOnGit(): void
     {
         $version = (new Version(
-            long: true,
             pathToVersionScript: "./version.sh",
             pathToCheckScript: "./check.sh",
+            long: true,
         ))->generate();
         $versionHash = trim(shell_exec("git log --format='%h' -n 1"));
 

@@ -13,9 +13,9 @@ class Version
     public const string PATH_TO_CHECK_SCRIPT = "cd ../../../ && ./version/src/scripts/check.sh";
 
     public function __construct(
-        public bool $long = false,
         public string $pathToVersionScript = self::PATH_TO_VERSION_SCRIPT,
         public string $pathToCheckScript = self::PATH_TO_CHECK_SCRIPT,
+        public bool $long = false,
     ) {}
 
     public function setLong(bool $long): void

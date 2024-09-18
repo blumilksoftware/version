@@ -10,20 +10,13 @@ class VersionHelper
         string $pathToVersionScript = Version::PATH_TO_VERSION_SCRIPT,
         string $pathToCheckScript = Version::PATH_TO_CHECK_SCRIPT,
     ): string {
-        return (new Version(
-            pathToVersionScript: $pathToVersionScript,
-            pathToCheckScript: $pathToCheckScript,
-        ))->generate();
+        return (new Version($pathToVersionScript, $pathToCheckScript))->generate();
     }
 
     public static function generateLongVersion(
         string $pathToVersionScript = Version::PATH_TO_VERSION_SCRIPT,
         string $pathToCheckScript = Version::PATH_TO_CHECK_SCRIPT,
     ): string {
-        return (new Version(
-            long: true,
-            pathToVersionScript: $pathToVersionScript,
-            pathToCheckScript: $pathToCheckScript,
-        ))->generate();
+        return (new Version($pathToVersionScript, $pathToCheckScript, long: true))->generate();
     }
 }
