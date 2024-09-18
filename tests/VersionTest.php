@@ -9,7 +9,10 @@ class VersionTest extends TestCase
 {
     public function testGeneratingVersionBasedOnGit(): void
     {
-        $version = (new Version())->generate();
+        $version = (new Version(
+            pathToVersionScript: "./version.sh",
+            pathToCheckScript: "./check.sh",
+        ))->generate();
 
         $this->assertIsString($version);
         $this->assertStringNotContainsString("|", $version);
@@ -17,7 +20,11 @@ class VersionTest extends TestCase
 
     public function testGeneratingLongVersionBasedOnGit(): void
     {
-        $version = (new Version(true))->generate();
+        $version = (new Version(
+            long: true,
+            pathToVersionScript: "./version.sh",
+            pathToCheckScript: "./check.sh",
+        ))->generate();
         $versionHash = trim(shell_exec("git log --format='%h' -n 1"));
 
         $this->assertIsString($version);
