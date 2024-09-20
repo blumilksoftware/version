@@ -30,7 +30,7 @@
     "cs": "./vendor/bin/php-cs-fixer fix --dry-run --diff --config codestyle.php",
     "csf": "./vendor/bin/php-cs-fixer fix --diff --config codestyle.php",
     "test": "./vendor/bin/phpunit tests --colors=always",
-    "post-install-cmd": [
+    "post-package-install": [
       "php -r 'chmod( __DIR__ . '/src/scripts/version.sh', 0777);'",
       "php -r 'chmod( __DIR__ . '/src/scripts/check.sh', 0777);'"
     ]
