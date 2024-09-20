@@ -31,8 +31,8 @@
     "csf": "./vendor/bin/php-cs-fixer fix --diff --config codestyle.php",
     "test": "./vendor/bin/phpunit tests --colors=always",
     "post-install-cmd": [
-      "php -r \"chmod( __DIR__ . '/src/scripts/version.sh', 0777);\"",
-      "php -r \"chmod( __DIR__ . '/src/scripts/check.sh', 0777);\"",
+      "php -r 'chmod( __DIR__ . '/src/scripts/version.sh', 0777);'",
+      "php -r 'chmod( __DIR__ . '/src/scripts/check.sh', 0777);'"
     ]
   }
 }
