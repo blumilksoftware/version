@@ -29,10 +29,6 @@
   "scripts": {
     "cs": "./vendor/bin/php-cs-fixer fix --dry-run --diff --config codestyle.php",
     "csf": "./vendor/bin/php-cs-fixer fix --diff --config codestyle.php",
-    "test": "./vendor/bin/phpunit tests --colors=always",
-    "post-package-install": [
-      "chmod +x src/scripts/version.sh",
-      "chmod +x src/scripts/check.sh"
-    ]
+    "test": "./vendor/bin/phpunit tests --colors=always"
   }
 }

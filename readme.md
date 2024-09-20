@@ -11,6 +11,23 @@ Add package to the project:
 composer require blumilksoftware/version
 ```
 
+Add to your composer.json file:
+```json
+{
+    "scripts": {
+        "post-install-cmd": [
+          "chmod +x vendor/blumilksoftware/version/src/scripts/version.sh",
+          "chmod +x vendor/blumilksoftware/version/src/scripts/check.sh"
+        ],
+        "post-update-cmd": [
+          "chmod +x vendor/blumilksoftware/version/src/scripts/version.sh",
+          "chmod +x vendor/blumilksoftware/version/src/scripts/check.sh"
+        ]
+    }
+}
+```
+It will make the scripts executable after each install or update.
+
 Then use the `Version` class to generate version strings based on Git or timestamp:
 ```php
 <?php
