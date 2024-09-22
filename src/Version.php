@@ -25,6 +25,10 @@ class Version
 
     public function generate(): string
     {
+        if (!$this->checkPermissionsToScripts()) {
+            $this->makeScriptsExecutable();
+        }
+
         return (new Process(["sh", "-c", $this->pathToCheckScript], self::SCRIPTS_DIRECTORY))->run()
             ? $this->getVersionBasedOnGit()
             : $this->getVersionBasedOnTimestamp();
@@ -48,5 +52,16 @@ class Version
     private function getVersionBasedOnTimestamp(): string
     {
         return (string)time();
+    }
+
+    private function checkPermissionsToScripts(): bool
+    {
+        return is_executable(self::SCRIPTS_DIRECTORY . "version.sh") && is_executable(self::SCRIPTS_DIRECTORY . "check.sh");
+    }
+
+    private function makeScriptsExecutable(): void
+    {
+        chmod(self::SCRIPTS_DIRECTORY . "version.sh", 0755);
+        chmod(self::SCRIPTS_DIRECTORY . "check.sh", 0755);
     }
 }
