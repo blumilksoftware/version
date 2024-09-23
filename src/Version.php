@@ -25,7 +25,7 @@ class Version
 
     public function generate(): string
     {
-        if (!$this->checkPermissionsToScripts()) {
+        if (!$this->scriptsAreExecutable()) {
             $this->makeScriptsExecutable();
         }
 
@@ -54,7 +54,7 @@ class Version
         return (string)time();
     }
 
-    private function checkPermissionsToScripts(): bool
+    private function scriptsAreExecutable(): bool
     {
         return is_executable(self::SCRIPTS_DIRECTORY . "version.sh") && is_executable(self::SCRIPTS_DIRECTORY . "check.sh");
     }
