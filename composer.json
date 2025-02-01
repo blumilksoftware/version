@@ -8,7 +8,7 @@
     "symfony/process": "v7.2.0"
   },
   "require-dev": {
-    "blumilksoftware/codestyle": "^v3.0.0",
+    "blumilksoftware/codestyle": "^v3.0.0 || ^4.0.0",
     "phpunit/phpunit": "^11.0.9"
   },
   "authors": [
