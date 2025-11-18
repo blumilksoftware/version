@@ -5,11 +5,11 @@
   "type": "library",
   "require": {
     "php": "^8.3",
-    "symfony/process": "v7.2.0"
+    "symfony/process": "^7.3"
   },
   "require-dev": {
-    "blumilksoftware/codestyle": "^v3.0.0",
-    "phpunit/phpunit": "^11.0.9"
+    "blumilksoftware/codestyle": "^5.1",
+    "phpunit/phpunit": "^11.5"
   },
   "authors": [
     {
